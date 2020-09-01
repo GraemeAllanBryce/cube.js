@@ -12,7 +12,9 @@ class AWSHandlers extends Handlers {
   }
 
   topicArn(topic) {
-    return `arn:aws:sns:${process.env.AWS_REGION}:${process.env.AWS_ACCOUNT_ID}:${topic}`;
+    const ret = `arn:aws:sns:${process.env.AWS_REGION}:${process.env.AWS_ACCOUNT_ID}:${topic}`;
+    console.log("SNS ARN:", ret);
+    return ret;
   }
 
   async sendNotificationMessage(message, type, context) {
